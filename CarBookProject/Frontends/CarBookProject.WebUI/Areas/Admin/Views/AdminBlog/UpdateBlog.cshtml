@@ -1,0 +1,41 @@
+﻿@model UpdateBlogAdminDTO
+@{
+    ViewData["Title"] = "UpdateBlog";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Blog Güncelleme Paneli</h4>
+            <p class="card-subtitle mb-4">(Sitedeki Blogun bilgilerini aşağıdan güncelleyebilirsiniz.)</p>
+            <form method="post">
+                @Html.HiddenFor(x=>x.BlogId)
+                <div class="form-group">
+                    <label style="color:deeppink" for="simpleinput">Kategoriyi Seçiniz...</label>
+                    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.categoryList, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label style="color:deeppink" for="simpleinput">Yazarı Seçiniz...</label>
+                    @Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewBag.authorList, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label style="color:deeppink" for="simpleinput">Blog Başlık:</label>
+                    <input type="text" asp-for=Title class="form-control" placeholder="Blog Başlık Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:deeppink" for="simpleinput">Resim Url:</label>
+                    <input type="text" asp-for=CoverImageUrl class="form-control" placeholder="Resim Url'ini Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:deeppink" for="simpleinput">Kısa Açıklama:</label>
+                    <textarea asp-for=ShortDescription rows="2" class="form-control" placeholder="Kısa Açıklamayı Giriniz..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label style="color:deeppink" for="simpleinput">Uzun Açıklama:</label>
+                    <textarea asp-for=Description rows="4" class="form-control" placeholder="Uzun Açıklamayı Giriniz..."></textarea>
+                </div>
+                <button class="btn btn-warning" style="margin-top:4px">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>

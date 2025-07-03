@@ -1,0 +1,13 @@
+﻿@model List<GetCategoryShowcaseDTO>
+@*Kategoriler*@
+<div class="sidebar-box ftco-animate">
+    <div class="categories">
+        <h3><span style="color:blue">Blog Kategorileri:</span></h3>
+       
+            @foreach (var x in Model)
+            {
+        <li><a href="#">@x.Name <span>(@Model.Count)</span></a></li>
+            }
+   
+    </div>
+</div>

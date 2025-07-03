@@ -1,0 +1,63 @@
+﻿@model CreateContactShowcaseDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+@*Ajax kullanmam için gerekli script*@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+@*Swet Alert Scripti*@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<section class="ftco-section contact-section">
+    <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+
+         @await Component.InvokeAsync("_ContactPagePartial")
+         
+         <div class="col-md-8 block-9 mb-md-5">
+                <form method="post"   class="bg-light p-5 contact-form">
+                    <div class="form-group">
+                        @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control", @placeholder = "Adınız Soyadınız", @id = "txtname" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @placeholder = "Mail Adresiniz",@id = "txtmail" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(x => x.Subject, new { @class = "form-control", @placeholder = "Konu", @id = "txtsubject" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextAreaFor(x => x.Message, new { @class = "form-control", @placeholder = "Mesajınız",@rows=4,@id="txtmessage" })
+                    </div>
+                    <div class="form-group">
+                        <input type="button" value="Gönder" id="btnsend" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div id="map" class="bg-white"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    //ajax işlemi post işlemi
+    $("#btnsend").click(function () {
+        let contactValues =
+        {   //veri tabanımdaki sütunlara atama yapıyorum
+            NameSurname: $("#txtname").val(),
+            Mail: $("#txtmail").val(),
+            Subject: $("#txtsubject").val(),
+            Message: $("#txtmessage").val()
+        };
+        $.ajax(
+            {
+                type: "Post",
+                url: "/Contact/AddContact/",
+                data: contactValues,
+                success: function (func) {
+                    swal("","Mesajınız İlgili Birimlere Gönderildi!", "success");
+            }
+            });
+    });
+</script>

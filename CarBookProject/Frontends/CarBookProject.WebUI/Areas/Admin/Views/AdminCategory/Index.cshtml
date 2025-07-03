@@ -1,0 +1,44 @@
+﻿@model List<GetCategoryAdminDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Kategori Listesi</h4>
+            <p class="card-subtitle mb-4">
+                <span style="font-size:15px"> Bloglarımızın Kategorilerinin Listesine Aşağıdan Ulaşabilirsiniz.</span>
+            </p>
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead style="background-color:darkcyan;color:white">
+                        <tr>
+                            <th>#</th>
+                            <th>Kategori Adı:</th>
+                            <th>Detaylar</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td>@x.Name</td>
+                                <td><a href="/Admin/AdminCategory/UpdateCategory/@x.CategoryId" class="btn btn-info">Detaylar</a></td>
+                                <td><a href="/Admin/AdminCategory/DeleteCategory/@x.CategoryId" class="btn btn-danger">Sil</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="/Admin/AdminCategory/CreateCategory" class="btn btn-success">Yeni Kategori</a>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,50 @@
+﻿@model List<GetBlogsWithAuthorAndCategoryAdminDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Blog Listesi</h4>
+            <p class="card-subtitle mb-4">
+                <span style="font-size:15px"> Yazarlarımızın Yayınladığı Blogların Listesi Aşağıdadır.</span>
+            </p>
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead style="background-color:darkslategray;color:white">
+                        <tr>
+                            <th>#</th>
+                            <th>Blog Adı:</th>
+                            <th>Kategori Adı:</th>
+                            <th>Yazar Adı:</th>
+                            <th>Detaylar</th>
+                            <th>Sil</th>
+                            <th>Yorumlar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td>@x.Title</td>
+                                <td>@x.CategoryName</td>
+                                <td>@x.AuthorName</td>
+                                <td><a href="/Admin/AdminBlog/UpdateBlog/@x.BlogId" class="btn btn-warning">Detaylar</a></td>
+                                <td><a href="/Admin/AdminBlog/DeleteBlog/@x.BlogId" class="btn btn-danger">Sil</a></td>
+                                <td><a href="/Admin/AdminBlogComment/Index/@x.BlogId" class="btn btn-primary">Yorumlar</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="/Admin/AdminBlog/CreateBlog" class="btn btn-success">Yeni Blog</a>
+    </div>
+</div>
+
+
+

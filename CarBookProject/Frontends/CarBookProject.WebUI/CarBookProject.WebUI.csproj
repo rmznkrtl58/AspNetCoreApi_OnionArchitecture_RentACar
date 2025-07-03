@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\showcase\.DS_Store" />
+    <None Include="wwwroot\showcase\css\.DS_Store" />
+    <None Include="wwwroot\showcase\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\showcase\css\css\.DS_Store" />
+    <None Include="wwwroot\showcase\fonts\.DS_Store" />
+    <None Include="wwwroot\showcase\fonts\flaticon\.DS_Store" />
+    <None Include="wwwroot\showcase\fonts\flaticon\font\.DS_Store" />
+    <None Include="wwwroot\showcase\fonts\ionicons\fonts\.DS_Store" />
+    <None Include="wwwroot\showcase\images\.DS_Store" />
+    <None Include="wwwroot\showcase\js\.DS_Store" />
+    <None Include="wwwroot\showcase\scss\.DS_Store" />
+    <None Include="wwwroot\showcase\scss\bootstrap\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.17" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\CarBookProject.DTOs\CarBookProject.DTOs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\_ViewImports.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

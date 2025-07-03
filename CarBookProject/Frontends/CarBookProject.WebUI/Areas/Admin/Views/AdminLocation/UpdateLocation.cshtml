@@ -1,0 +1,21 @@
+﻿@model UpdateLocationAdminDTO
+@{
+    ViewData["Title"] = "UpdateLocation";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Konum Güncelleme Paneli</h4>
+            <p class="card-subtitle mb-4">(Rezervasyonlarda Konumlandırma İçin Konumu Güncelleyiniz.)</p>
+            <form method="post">
+                @Html.HiddenFor(x=>x.LocationId)
+                <div class="form-group">
+                    <label style="color:goldenrod" for="simpleinput">Konum Adı:</label>
+                    <input type="text" asp-for=PointName class="form-control" placeholder="Konum Adını Giriniz...">
+                </div>
+                <button class="btn btn-warning" style="margin-top:4px">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>

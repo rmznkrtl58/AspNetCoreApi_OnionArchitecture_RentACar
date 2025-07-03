@@ -1,0 +1,46 @@
+﻿@model List<GetTestimonialAdminDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Referanslarımızın Listesi</h4>
+            <p class="card-subtitle mb-4">
+                <span style="font-size:15px"> Firmamızın değerli referansları aşağıda listelenmiştir.</span>
+            </p>
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead style="background-color:cyan;color:black">
+                        <tr>
+                            <th>#</th>
+                            <th>Resim:</th>
+                            <th>Ad Soyad:</th>
+                            <th>Statü:</th>
+                            <th>Detaylar</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td><img src="@x.ImageUrl" style="width:50px;height:50px" /></td>
+                                <td>@x.Name</td>
+                                <td>@x.Title</td>
+                                <td><a href="/Admin/AdminTestimonial/UpdateTestimonial/@x.TestimonialId" class="btn btn-warning">Detaylar</a></td>
+                                <td><a href="/Admin/AdminTestimonial/DeleteTestimonial/@x.TestimonialId" class="btn btn-danger">Sil</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="/Admin/AdminTestimonial/CreateTestimonial" class="btn btn-success">Yeni Referans</a>
+    </div>
+</div>
+

@@ -1,0 +1,17 @@
+﻿@model List<GetCommentByBlogIdShowcaseDTO>
+<h3 class="mb-5">@Model.Count Yorum Mevcut</h3>
+<ul class="comment-list">
+    @foreach(var x in Model)
+    {
+    <li class="comment">
+        <div class="vcard bio">
+            <img src="~/Showcase/images/user.png" alt="Image placeholder">
+        </div>
+        <div class="comment-body">
+            <h3>@x.NameSurname</h3>
+            <div class="meta">@Convert.ToDateTime(x.CommentDate).ToString("dd/MMM/yyyy")</div>
+            <p>@x.Content</p>
+        </div>
+    </li>
+    }
+</ul>

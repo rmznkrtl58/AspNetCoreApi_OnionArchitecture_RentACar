@@ -1,0 +1,35 @@
+﻿@model UpdateTestimonialAdminDTO
+@{
+    ViewData["Title"] = "UpdateTestimonial";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Referans Güncelleme Paneli</h4>
+            <p class="card-subtitle mb-4">(Siz müşterilerimize iyi hizmet vermek için bizim referans aldığımız kişileri güncellemeye çalışıyoruz.)</p>
+            <form method="post">
+                @Html.HiddenFor(x=>x.TestimonialId)
+                <div class="form-group">
+                    <label style="color:darkseagreen" for="simpleinput">Adı Soyadı:</label>
+                    <input type="text" asp-for=Name class="form-control" placeholder="Adını Soyadını Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkseagreen" for="simpleinput">Statü:</label>
+                    <input type="text" asp-for=Title class="form-control" placeholder="Statüsünü Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkseagreen" for="simpleinput">Resim Url:</label>
+                    <input type="text" asp-for=ImageUrl class="form-control" placeholder="Resim Url Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkseagreen" for="simpleinput">Sitemiz Hakkındaki Yorumu:</label>
+                    <textarea asp-for="Comment" class="form-control" rows="3" placeholder="Yorumunu Giriniz..."></textarea>
+                </div>
+                <button class="btn btn-warning" style="margin-top:4px">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

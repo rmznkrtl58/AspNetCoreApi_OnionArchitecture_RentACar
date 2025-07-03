@@ -1,0 +1,53 @@
+﻿@model GetCarsWithBrandByCarIdAdminDTO
+@{
+    ViewData["Title"] = "UpdateCar";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Yeni Araba Güncelleme Paneli</h4>
+            <p class="card-subtitle mb-4">(Sitedeki Arabayı Güncelleyiniz.)</p>
+            <form method="post">
+                @Html.HiddenFor(x=>x.CarId)
+                <div class="form-group">
+                    <label style="color:darkred" for="simpleinput">Marka Seçiniz...</label>
+                    @Html.DropDownListFor(x => x.BrandId, (List<SelectListItem>)ViewBag.brands, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label style="color:darkred" for="simpleinput">Model</label>
+                    <input type="text" asp-for=Model class="form-control" placeholder="Model Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkred" for="simpleinput">Kilometre</label>
+                    <input type="text" asp-for=Km class="form-control" placeholder="KM Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkred" for="simpleinput">Şanzıman</label>
+                    <input type="text" asp-for=Transmission class="form-control" placeholder="Şanzıman Türünü Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkred" for="simpleinput">Bagaj Sayısı</label>
+                    <input type="text" asp-for=Luggage class="form-control" placeholder="Bagaj Sayısını Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkred" for="simpleinput">Koltuk Sayısı</label>
+                    <input type="text" asp-for=Seat class="form-control" placeholder="Koltuk Sayısını Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkred" for="simpleinput">Benzin Türü</label>
+                    <input type="text" asp-for=FuelType class="form-control" placeholder="Benzin Türünü Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkred" for="simpleinput">Kapak Fotoğrafı</label>
+                    <input type="text" asp-for=CoverImageUrl class="form-control" placeholder="Kapak Fotoğrafını Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkred" for="simpleinput">Büyük Kapak Fotoğrafı</label>
+                    <input type="text" asp-for=BigImageUrl class="form-control" placeholder="Büyük Kapak Fotoğrafını Giriniz...">
+                </div>
+                <button class="btn btn-success" style="margin-top:4px">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿@model CreateLocationAdminDTO
+@{
+    ViewData["Title"] = "CreateLocation";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Yeni Konum Ekleme Paneli</h4>
+            <p class="card-subtitle mb-4">(Rezervasyonlarda Konumlandırma İçin Yeni Konum Girişi Yapınız.)</p>
+            <form method="post">
+                <div class="form-group">
+                    <label style="color:goldenrod" for="simpleinput">Konum Adı:</label>
+                    <input type="text" asp-for=PointName class="form-control" placeholder="Konum Adını Giriniz...">
+                </div>
+                <button class="btn btn-success" style="margin-top:4px">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

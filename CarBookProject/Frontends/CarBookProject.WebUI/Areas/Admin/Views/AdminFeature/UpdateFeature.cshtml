@@ -1,0 +1,23 @@
+﻿@model UpdateFeatureAdminDTO
+@{
+    ViewData["Title"] = "UpdateFeature";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Özellik Güncelleme Paneli</h4>
+            <p class="card-subtitle mb-4">(Sitedeki Özelliği Güncelleyiniz.)</p>
+            <form method="post">
+                @Html.HiddenFor(c=>c.FeatureId)
+                <div class="form-group">
+                    <label style="color:orangered" for="simpleinput">Özellik Adı:</label>
+                    <input type="text" asp-for=Name class="form-control" placeholder="Özellik Adını Giriniz...">
+                </div>
+                <button class="btn btn-success" style="margin-top:4px">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

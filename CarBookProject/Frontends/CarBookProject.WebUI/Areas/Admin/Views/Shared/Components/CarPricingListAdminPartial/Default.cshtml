@@ -1,0 +1,48 @@
+﻿@model List<GetCarPricingWithTimePeriodAdminDTO>
+<div class="col-xl-6">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title">Araba Fiyatları Süreç Bazında Listelemesi Aşağıdadır.</h4>
+            <p class="card-subtitle mb-4 font-size-13">
+                Listede Gerekli Fiyatlandırmalar Mevcuttur.
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-centered table-hover table-xl mb-0" id="recent-orders">
+                    <thead>
+                        <tr>
+                            <th class="border-top-0">Resim:</th>
+                            <th class="border-top-0">Araba Model:</th>
+                            <th class="border-top-0">Günlük Fiyat:</th>
+                            <th class="border-top-0">Haftalık Fiyat:</th>
+                            <th class="border-top-0">Aylık Fiyat:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var x in Model)
+                        {
+                        <tr>
+                            <td class="text-truncate"><img src="@x.CoverImageUrl" style="width:50px;height:50px" /></td>
+                            <td>
+                                    <span class="badge badge-soft-primary p-2">@x.model</span>
+                            </td>
+                         @*    <td>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar progress-bar-striped bg-secondary"
+                                         role="progressbar" aria-valuenow="85"
+                                         aria-valuemin="20" aria-valuemax="100"
+                                         style="width:85%"></div>
+                                </div>
+                            </td> *@
+                                <td class="text-truncate">@x.dailyPrice₺ </td>
+                                <td class="text-truncate">@x.weeklyPrice₺ </td>
+                                <td class="text-truncate">@x.monthlyPrice₺ </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div> 
+    </div> 
+</div> 

@@ -1,0 +1,34 @@
+﻿@model UpdateBannerAdminDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Banner Alanı Güncelleme Sayfası</h4>
+            <p class="card-subtitle mb-4">(Sitenin Ana Sayfasındaki Giriş Bölümünü (Banner Alanı) Güncellemek İçin Aşağıdaki İşlemleri Yapınız.)</p>
+            <form method="post">
+                @Html.HiddenFor(x=>x.BannerId)
+                <div class="form-group">
+                    <label style="color:purple" for="simpleinput">Başlık:</label>
+                    <input type="text" asp-for=Title class="form-control" placeholder="Marka İsmi Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:purple" for="simpleinput">Alt Açıklama:</label>
+                    <input type="text" asp-for=Description class="form-control" placeholder="Alt Açıklama Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:purple" for="simpleinput">Video Url:</label>
+                    <input type="text" asp-for=VideoUrl class="form-control" placeholder="Video Url Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:purple" for="simpleinput">Video Açıklama:</label>
+                    <input type="text" asp-for=VideoDescription class="form-control" placeholder="Video Açıklaması Giriniz...">
+                </div>
+                <button class="btn btn-primary" style="margin-top:4px">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+

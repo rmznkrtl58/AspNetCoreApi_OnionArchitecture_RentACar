@@ -1,0 +1,33 @@
+﻿@model CreateAuthorAdminDTO
+@{
+    ViewData["Title"] = "CreateAuthor";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Yeni Yazar Ekleme Paneli</h4>
+            <p class="card-subtitle mb-4">(Siteye Yeni Yazar Girişi Yapınız.)</p>
+            <form method="post">
+                <div class="form-group">
+                    <label style="color:darkslategrey" for="simpleinput">Yazarın İsmi:</label>
+                    <input type="text" asp-for=NameSurname class="form-control" placeholder="Yazarın İsmini Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkslategrey" for="simpleinput">Resim Url:</label>
+                    <input type="text" asp-for=ImageUrl class="form-control" placeholder="Resim Url'li Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:darkslategrey" for="simpleinput">Yazar Açıklama:</label>
+                    <textarea asp-for="Description" class="form-control" placeholder="Yazar Açıklamasını Giriniz..." rows="4"></textarea>
+                </div>
+                <button class="btn btn-success" style="margin-top:4px">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+

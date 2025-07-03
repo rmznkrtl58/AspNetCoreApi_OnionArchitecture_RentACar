@@ -1,0 +1,55 @@
+﻿@model List<GetCarFeatureByCarIdAdminDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+    string txt = "";
+    string style = "";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">İlgili Arabada Bulunan Özellikler:</h4>
+            <p class="card-subtitle mb-4">
+                Sizlere daha iyi hizmet verebilmemiz için araçlarımızdaki olan ve olmayan bütün özellikleri aşağıda listeledik.
+            </p>
+            <div >
+                <table class="table table-bordered">
+                    <thead style="background-color:peru;color:white">
+                        <tr class="">
+                            <th>#</th>
+                            <th>Bulunan Özellik</th>
+                            <th>Durum</th>
+                            <th>Aktif</th>
+                            <th>Pasif</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            if (x.Available == true)
+                            {
+                                txt = "Özellik Var";
+                                style = "text text-success";
+                            }
+                            else
+                            {
+                                txt = "Özellik Yok";
+                                style = "text text-danger";
+                            }
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <th >@x.FeatureName</th>
+                                <th class="@style">@txt</th>
+                                <td><a href="/Admin/AdminCarFeature/ActiveCarFeature/@x.CarFeatureId" class="btn btn-success">Aktif</a></td>
+                                <td><a href="/Admin/AdminCarFeature/PassiveCarFeature/@x.CarFeatureId" class="btn btn-danger">Pasif</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="/Admin/AdminCarFeature/CreateCarFeature/@ViewBag.cId" class="btn btn-info">Araca Yeni Özellik Ekle</a>
+    </div>
+</div>

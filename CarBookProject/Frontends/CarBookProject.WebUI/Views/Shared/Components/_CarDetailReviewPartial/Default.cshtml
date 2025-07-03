@@ -1,0 +1,115 @@
+﻿@model List<GetReviewByCarIdShowcaseDTO>
+<div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+	<div class="row">
+		<div class="col-md-7">
+			<h3 class="head">@Model.Count Yorum Mevcut</h3>
+			@foreach(var x in Model){
+			<div class="review d-flex">
+				<div class="user-img" style="background-image: url(/Showcase/images/person_1.jpg)"></div>
+				<div class="desc">
+					<h4>
+						<span class="text-left">@x.CustomerName</span>
+						<span class="text-right">@Convert.ToDateTime(x.ReviewDate).ToString("dd/MMM/yyyy")</span>
+					</h4>
+					<p class="star">
+						@{if(x.RaytingValue==5){
+								<span>
+									<i class="ion-ios-star"></i>
+									<i class="ion-ios-star"></i>
+									<i class="ion-ios-star"></i>
+									<i class="ion-ios-star"></i>
+									<i class="ion-ios-star"></i>
+									</span>
+								}
+								if (x.RaytingValue == 4)
+								{
+									<span>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+									</span>
+								}
+								if (x.RaytingValue == 3)
+								{
+									<span>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+									</span>
+								}
+								if (x.RaytingValue == 2)
+								{
+									<span>
+										<i class="ion-ios-star"></i>
+										<i class="ion-ios-star"></i>
+									</span>
+								}
+								if (x.RaytingValue == 1)
+								{
+									<span>
+										<i class="ion-ios-star"></i>
+									</span>
+								}
+							}
+						<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
+					</p>
+					<p>@x.Comment</p>
+				</div>
+			</div>
+			}
+		</div>
+		<div class="col-md-5">
+			<div class="rating-wrap">
+				<h3 class="head">Give a Review</h3>
+				<div class="wrap">
+					<p class="star">
+						<span>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							(100%)
+						</span>
+						<span>20 Reviews</span>
+					</p>
+					<p class="star">
+						<span>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							(85%)
+						</span>
+						<span>10 Reviews</span>
+					</p>
+					<p class="star">
+						<span>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							(75%)
+						</span>
+						<span>5 Reviews</span>
+					</p>
+					<p class="star">
+						<span>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							(55%)
+						</span>
+						<span>3 Reviews</span>
+					</p>
+					<p class="star">
+						<span>
+							<i class="ion-ios-star"></i>
+							(35%)
+						</span>
+						<span>0 Reviews</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

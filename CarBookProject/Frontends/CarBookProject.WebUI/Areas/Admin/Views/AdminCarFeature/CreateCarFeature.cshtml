@@ -1,0 +1,22 @@
+﻿@model CreateCarFeatureDTO
+@{
+    ViewData["Title"] = "CreateCarFeature";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">İlgili Araca Özellik Ekleme Paneli</h4>
+            <p class="card-subtitle mb-4">Arabalarımıza Özel Özellik Eklemelerini Aşağıdan Yapabilirsiniz.</p>
+            <form method="post">
+                <input type="hidden" asp-for="CarId" value="@TempData["cId"]" />
+                <div class="form-group">
+                    <label style="color:darkslategrey" for="simpleinput">Yazarın İsmi:</label>
+                    @Html.DropDownListFor(x => x.FeatureId, (List<SelectListItem>)ViewBag.feature,new{@class="form-control"})
+                </div>
+                <button class="btn btn-success" style="margin-top:4px">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,63 @@
+﻿@model List<GetCarWithBrandsAdminDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Araba Listesi</h4>
+            <p class="card-subtitle mb-4">
+                Sitemizde Mevcutta Bulunan Bütün Arabalarımızın Listesi...
+            </p>
+            <div class="table-responsive">
+                <table class="table table-dark text-white mb-0">
+                    <thead>
+                        <tr class="">
+                            <th>#</th>
+                            <th>Resim</th>
+                            <th>Marka</th>
+                            <th>Model</th>
+                            <th>Detaylar</th>
+                            <th>Sil</th>
+                            <th>Özellikler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var x in Model)
+                        {
+                            count++;
+                            <tr class="bg-primary">
+                            <th scope="row">@count</th>
+                            <td><img src="@x.CoverImageUrl" style="width:50px;height:40px" /></td>
+                            <td>@x.BrandName</td>
+                            <td>@x.Model</td>
+                            <td><a href="/Admin/AdminCar/UpdateCar/@x.CarId" class="btn btn-warning">Detaylar</a></td>
+                            <td><a href="/Admin/AdminCar/DeleteCar/@x.CarId" class="btn btn-danger">Sil</a></td>
+                            <td><a href="/Admin/AdminCarFeature/Index/@x.CarId" class="btn btn-info">Özellikler</a></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="/Admin/AdminCar/CreateCar/" class="btn btn-success">Yeni Araba</a>
+
+    </div>
+</div>
+@*  NOT=Available değeri true olanlar seçili olmayanlar boş gelen check boxlu kullanım           
+    <form method="post">
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <div class="form-check">
+                                    <input type="hidden" asp-for="@Model[i].CarFeatureID" />
+                                    <input type="hidden" asp-for="@Model[i].FeatureName" />
+                                    <input type="checkbox" asp-for="@Model[i].Available" class="form-check-input" />
+                                    <label class="form-check-label" for="@Model[i].Available">@Model[i].FeatureName</label>
+                                </div>
+                            }
+                            <br />
+                            <button class="btn btn-success">Değişiklikleri Kaydet</button>
+                        </form>
+*@

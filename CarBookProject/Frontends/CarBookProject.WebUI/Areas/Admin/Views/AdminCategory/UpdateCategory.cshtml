@@ -1,0 +1,21 @@
+﻿@model UpdateCategoryAdminDTO
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Yeni Kategori Güncelleme Paneli</h4>
+            <p class="card-subtitle mb-4">(Sitedeki Kategoriyi Güncellemek için aşağıdaki işlemleri Yapınız.)</p>
+            <form method="post">
+                @Html.HiddenFor(x=>x.CategoryId)
+                <div class="form-group">
+                    <label style="color:orangered" for="simpleinput">Kategori Adı:</label>
+                    <input type="text" asp-for=Name class="form-control" placeholder="Kategori Adını Giriniz...">
+                </div>
+                <button class="btn btn-warning" style="margin-top:4px">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>

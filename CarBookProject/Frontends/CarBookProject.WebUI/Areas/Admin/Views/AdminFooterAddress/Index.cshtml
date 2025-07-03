@@ -1,0 +1,33 @@
+﻿@model UpdateFooterAdminDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Hakkımda Alanı Güncelleme Sayfası</h4>
+            <p class="card-subtitle mb-4">(Sitenin Ana Sayfasındaki Hakkımda Bölümünü  Güncellemek İçin Aşağıdaki İşlemleri Yapınız.)</p>
+            <form method="post">
+                @Html.HiddenFor(x => x.FooterId)
+                <div class="form-group">
+                    <label style="color:indianred" for="simpleinput">Kurumsal Mail Adresimiz:</label>
+                    <input type="text" asp-for=Mail class="form-control" placeholder="Maili Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:indianred" for="simpleinput">Kurumsal Telefon Numaramız:</label>
+                    <input type="text" asp-for=Phone class="form-control" placeholder="Telefon Numarasını Giriniz...">
+                </div>
+                <div class="form-group">
+                    <label style="color:indianred" for="simpleinput">Ofis Adresimiz:</label>
+                    <textarea asp-for=Address class="form-control" rows="2" placeholder="Adresi Giriniz..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label style="color:indianred" for="simpleinput">Açıklama:</label>
+                    <textarea asp-for=Description class="form-control" rows="4" placeholder="Açıklama Giriniz..."></textarea>
+                </div>
+                <button class="btn btn-warning" style="margin-top:4px">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>

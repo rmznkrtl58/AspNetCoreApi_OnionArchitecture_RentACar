@@ -1,0 +1,45 @@
+﻿@model List<GetLast5BlogDTO>
+<div class="col-xl-6">
+    <div class="card">
+        <div class="card-body">
+
+            <h4 class="card-title" style="font-weight:bold;font-size:18px">Yüklenen Son 5 Blog</h4>
+            <p class="card-subtitle mb-4" style="font-size:15px;color:red">
+                (Aşağıda Yazarlarımızın Yüklemiş Olduğu Son 5 Blogun Listesi Vardır.)
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-borderless table-hover table-centered table-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th>Tarih:</th>
+                            <th>Kategori:</th>
+                            <th>Yazar:</th>
+                            <th>Blog:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Convert.ToDateTime(x.CreateDate).ToString("dd/MMM/yyyy")
+                                </td>
+                                <td>
+                                    @x.CategoryName
+                                </td>
+                                <td>
+                                    @x.AuthorName
+                                </td>
+                                <td>
+                                    @x.Title
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

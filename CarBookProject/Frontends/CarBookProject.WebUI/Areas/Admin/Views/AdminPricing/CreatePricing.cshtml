@@ -1,0 +1,24 @@
+﻿@model CreatePricingAdminDTO
+@{
+    ViewData["Title"] = "CreatePricing";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-weight:bold">Yeni Süreç Ekleme Paneli</h4>
+            <p class="card-subtitle mb-4">(Siteye Fiyatlandırma İçin Yeni Süreç Girişi Yapınız.)</p>
+            <form method="post">
+                <div class="form-group">
+                    <label style="color:black" for="simpleinput">Süreç Adı:</label>
+                    <input type="text" asp-for=Name class="form-control" placeholder="Süreç Adını Giriniz...">
+                </div>
+                <button class="btn btn-success" style="margin-top:4px">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
