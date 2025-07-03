@@ -31,6 +31,6 @@ Kullanılan Teknolojiler Ve Uygulamalar:
  ->Authorize & Authentication
 
  Resimler:
- [](./10.png)
+ [](Images/10.png)
  
 
